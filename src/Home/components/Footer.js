@@ -45,6 +45,8 @@ const Footer = () => {
 						<span className='contact'>Phone: </span>
 						<span className='info'>+201066776677</span>
 					</a>
+				</Third>
+			</div>
 					<div className='social-media-icons'>
 						<a href='#'>
 							<BsFacebook />
@@ -53,8 +55,6 @@ const Footer = () => {
 							<BsInstagram />
 						</a>
 					</div>
-				</Third>
-			</div>
 		</Section>
 	);
 };
@@ -69,7 +69,7 @@ const Section = styled.section`
 	padding: 1rem;
 	border-radius: 40px 40px 0 0;
 	color: white;
-	display: flex;
+	/* display: flex; */
 	line-height: 2rem;
 	box-sizing: border-box;
 	cursor: pointer;
@@ -102,6 +102,18 @@ const Section = styled.section`
 		justify-content: space-between;
 		flex-wrap: wrap;
 	}
+	.social-media-icons {
+		width: 100%;
+		font-size: 1.6rem;
+		display: flex;
+		gap: 1rem;
+		justify-content: flex-end;
+		box-sizing: border-box;
+		@media screen and (max-width: 768px) {
+			justify-content: center;
+			padding: 2rem;
+		}
+	}
 `;
 
 const First = styled.div`
@@ -120,19 +132,9 @@ const Second = styled.div`
 	flex-direction: column;
 `;
 const Third = styled.div`
-	width: 100%;
 	display: flex;
 	flex-direction: column;
-	.social-media-icons {
-		font-size: 1.6rem;
-		display: flex;
-		gap: 1rem;
-		justify-content: flex-end;
-		padding: 3rem;
-		@media screen and (max-width: 768px) {
-			justify-content: center;
-		}
-	}
+	
 `;
 
 
