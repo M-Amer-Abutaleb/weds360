@@ -87,6 +87,14 @@ const FirstPart = styled.div`
 		color: #3f3d3d;
 		width: 30%;
 	}
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		p {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0 3rem;
+		}
+	}
 `;
 
 const SecondPart = styled.div`

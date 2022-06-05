@@ -45,30 +45,33 @@ const Footer = () => {
 						<span className='contact'>Phone: </span>
 						<span className='info'>+201066776677</span>
 					</a>
+					<div className='social-media-icons'>
+						<a href='#'>
+							<BsFacebook />
+						</a>
+						<a href='#'>
+							<BsInstagram />
+						</a>
+					</div>
 				</Third>
-			</div>
-			<div className='social-media-icons'>
-				<BsFacebook />
-				<BsInstagram />
 			</div>
 		</Section>
 	);
 };
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////				 Styling 				///////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////				 Styling 				///////////
+//////////////////////////////////////////////
 
 const Section = styled.section`
-	position: relative;
 	background-color: black;
-	height: 18vh;
 	width: 100%;
-	padding-bottom: 10px;
+	padding: 1rem;
 	border-radius: 40px 40px 0 0;
 	color: white;
 	display: flex;
 	line-height: 2rem;
+	box-sizing: border-box;
 	cursor: pointer;
 	.header {
 		color: #848077;
@@ -91,21 +94,13 @@ const Section = styled.section`
 		transition: all 5ms ease-in-out;
 	}
 	.container {
+		box-sizing: border-box;
 		width: 100%;
-		padding: 0 5rem 1rem;
+		padding: 0 2rem 1rem;
 		display: flex;
 		align-content: flex-end;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		box-sizing: border-box;
-	}
-	.social-media-icons {
-		position: absolute;
-		bottom: 18px;
-		right: 90px;
-		font-size: 1.6rem;
-		display: flex;
-		gap: 1rem;
 	}
 `;
 
@@ -116,7 +111,8 @@ const First = styled.div`
 	}
 	.icons {
 		display: flex;
-		gap: 1rem;
+		flex-wrap: wrap;
+		gap: 0.2rem;
 	}
 `;
 const Second = styled.div`
@@ -124,8 +120,19 @@ const Second = styled.div`
 	flex-direction: column;
 `;
 const Third = styled.div`
+	width: 100%;
 	display: flex;
 	flex-direction: column;
+	.social-media-icons {
+		font-size: 1.6rem;
+		display: flex;
+		gap: 1rem;
+		justify-content: flex-end;
+		padding: 3rem;
+		@media screen and (max-width: 768px) {
+			justify-content: center;
+		}
+	}
 `;
 
 

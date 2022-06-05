@@ -165,12 +165,14 @@ const FirstPart = styled.section`
 		justify-content: center;
 		align-items: center;
 		h1 {
-			font-size: 3rem;
+			font-size: 2rem;
+			font-weight: 500;
 		}
 		p {
 			width: 70%;
 		}
 	}
+
 	.LeftSide {
 		width: 61%;
 		height: 100%;
@@ -192,7 +194,6 @@ const FirstPart = styled.section`
 			top: 40px; // To control the Y position of the background shape (Move up or Down)
 			max-width: 50vw;
 			max-height: 90vh;
-
 			cursor: grab;
 			overflow: hidden;
 		}
@@ -227,9 +228,25 @@ const FirstPart = styled.section`
 			}
 		}
 	}
+
+	/* Media */
+
 	@media screen and (max-width: 768px) {
 		flex-direction: column;
 		padding-bottom: 23rem;
+		.RightSide {
+			flex-direction: column;
+			p,
+			h1 {
+				box-sizing: border-box;
+				text-align: start;
+				width: 100%;
+				padding: 0 1rem;
+			}
+			button {
+				margin-left: 1rem;
+			}
+		}
 		.RightSide {
 			width: 100%;
 			text-align: center;
@@ -276,7 +293,6 @@ const SecondPart = styled.div`
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		
 	}
 
 	.RightSide {
@@ -304,10 +320,11 @@ const SecondPart = styled.div`
 			overflow: hidden;
 			.second-inner-carousel {
 				display: flex;
+				height: 100%;
 			}
 			.item {
 				min-height: 18vh;
-				min-width: 14vw;
+				min-width: 30vw;
 				width: 10vw;
 				padding: 5px;
 				display: flex;
@@ -332,31 +349,48 @@ const SecondPart = styled.div`
 			}
 		}
 	}
+
+	/* Media */
+
 	@media screen and (max-width: 768px) {
 		flex-direction: column;
-		margin-bottom: 10rem;
+
 		.LeftSide {
+			flex-direction: column;
 			width: 100%;
-			text-align: center;
+			p,
+			h1 {
+				box-sizing: border-box;
+				text-align: start;
+				width: 100%;
+				padding: 0 1rem;
+			}
+			button {
+				margin-left: 1rem;
+			}
 		}
+
 		.RightSide {
 			.secondBackground {
-				top: 350px;
+				top: 250px;
 				width: 100%;
 				min-width: 110vw;
+				height: 37vh;
+				clip-path: polygon(0 0, 100% 0, 100% 100%, 23% 100%);
 			}
 			.secondCarousel {
-				top: 450px;
+				top: 270px;
 				left: 60px;
-				max-width: 50vw;
+				max-width: 70vw;
 				max-height: 70vh;
 			}
 			.second-inner-carousel {
 				height: 30vh;
 			}
 			.item {
-				max-height: 30vh;
 				min-width: 40vw;
+				width: 55vw;
+				height: 32vh;
 			}
 		}
 	}

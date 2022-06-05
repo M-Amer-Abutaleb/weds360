@@ -69,7 +69,7 @@ const FifthSection = () => {
 const Main = styled.div`
 	height: 100%;
 	width: 100%;
-	padding: 1.5rem 0;
+	padding: 1rem 0;
 `;
 const FirstPart = styled.div`
 	width: 100%;
@@ -79,6 +79,7 @@ const FirstPart = styled.div`
 	justify-content: space-evenly;
 	margin: 0;
 	align-items: center;
+	box-sizing: border-box;
 	h1 {
 		font-size: 2rem;
 		font-weight: 500;
@@ -86,6 +87,14 @@ const FirstPart = styled.div`
 	p {
 		color: #3f3d3d;
 		width: 30%;
+	}
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		p {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0 3rem;
+		}
 	}
 `;
 

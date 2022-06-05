@@ -66,8 +66,8 @@ const FirstPart = styled.div`
 const SecondPart = styled.div`
 	.Carousel {
 		padding: 0 0 5rem 0;
-		max-width: 80rem;
-		max-height: 15rem;
+		max-width: 80vw;
+		max-height: 15vh;
 		cursor: grab;
 		overflow: hidden;
 	}
