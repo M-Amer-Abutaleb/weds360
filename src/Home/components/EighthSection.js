@@ -2,42 +2,18 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { images } from './data/images';
+import Carousel from './Carousel';
 
 const EighthSection = () => {
-	const [pictures, setPictures] = useState(images);
-	const [width, setWidth] = useState(0);
-	const carousel = useRef();
-
-	useEffect(() => {
-		setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-	}, [width]);
-
 	return (
 		<Section>
 			<FirstPart>
 				<h1>New and Notable</h1>
 			</FirstPart>
 			<SecondPart>
-				<motion.div
-					className='Carousel'
-					ref={carousel}
-					whileTap={{ cursor: 'grabbing' }}>
-					<motion.div
-						drag='x'
-						className='inner-carousel'
-						dragConstraints={{ right: 0, left: -width }}>
-						{pictures.map((picture, pictureIndex) => {
-							const { image, title } = picture;
-							return (
-								<motion.div key={pictureIndex} className='item'>
-									<img className='carousel-img' src={image} alt={title} />
-									<p>{title}</p>
-									<h6>{title}</h6>
-								</motion.div>
-							);
-						})}
-					</motion.div>
-				</motion.div>
+				<div className='Carousel'>
+					<Carousel />
+				</div>
 			</SecondPart>
 		</Section>
 	);
@@ -67,7 +43,7 @@ const SecondPart = styled.div`
 	.Carousel {
 		padding: 0 0 5rem 0;
 		max-width: 80vw;
-		max-height: 15vh;
+		max-height: 25vh;
 		cursor: grab;
 		overflow: hidden;
 	}
@@ -86,14 +62,6 @@ const SecondPart = styled.div`
 		box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 		&:hover {
 			box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 1);
-		}
-		img {
-			width: 10rem;
-			height: 160px;
-			border-radius: 10px 10px 0 0;
-			object-fit: cover;
-			object-position: 100%;
-			pointer-events: none;
 		}
 		p {
 			padding: 0;

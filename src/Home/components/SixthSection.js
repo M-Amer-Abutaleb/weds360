@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { images } from './data/images';
 import { motion } from 'framer-motion';
+import Carousel from './Carousel';
 
 import 'swiper/css';
 
@@ -11,33 +12,14 @@ const SixthSection = () => {
 	const [width, setWidth] = useState(0);
 	const carousel = useRef();
 
-	useEffect(() => {
-		setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-	}, []);
 	return (
 		<Section>
 			<FirstPart>
 				<div className='LeftSide'>
 					<div className='background'></div>
-					<motion.div
-						className='Carousel'
-						ref={carousel}
-						whileTap={{ cursor: 'grabbing' }}>
-						<motion.div
-							drag='x'
-							className='inner-carousel'
-							dragConstraints={{ right: 0, left: -width }}>
-							{pictures.map((picture, pictureIndex) => {
-								const { image, title } = picture;
-								return (
-									<motion.div key={pictureIndex} className='item'>
-										<img className='carousel-img' src={image} alt={title} />
-										<p>{title}</p>
-									</motion.div>
-								);
-							})}
-						</motion.div>
-					</motion.div>
+					<div className='carousel'>
+						<Carousel />
+					</div>
 				</div>
 				<div className='RightSide'>
 					<div className='content'>
@@ -71,25 +53,9 @@ const SixthSection = () => {
 				</div>
 				<div className='RightSide'>
 					<div className='secondBackground'></div>
-					<motion.div
-						className='secondCarousel'
-						ref={carousel}
-						whileTap={{ cursor: 'grabbing' }}>
-						<motion.div
-							className='second-inner-carousel'
-							drag='x'
-							dragConstraints={{ right: 0, left: -width }}>
-							{pictures.map((picture, pictureIndex) => {
-								const { image, title } = picture;
-								return (
-									<motion.div key={pictureIndex} className='item'>
-										<img className='carousel-img' src={image} alt={title} />
-										<p>{title}</p>
-									</motion.div>
-								);
-							})}
-						</motion.div>
-					</motion.div>
+					<div className='secondCarousel'>
+						<Carousel />
+					</div>
 				</div>
 			</SecondPart>
 		</Section>
@@ -108,7 +74,7 @@ const Section = styled.section`
 	align-items: center;
 	justify-content: center;
 	background-color: #fff;
-	padding-bottom: 4rem;
+	padding-bottom: 2rem;
 	margin: 0;
 	box-sizing: border-box;
 	h1 {
@@ -193,7 +159,7 @@ const FirstPart = styled.section`
 			left: 0; // To control the X position of the background shape (Left or Right)
 			top: 40px; // To control the Y position of the background shape (Move up or Down)
 			max-width: 50vw;
-			max-height: 90vh;
+			max-height: 100vh;
 			cursor: grab;
 			overflow: hidden;
 		}
@@ -202,9 +168,9 @@ const FirstPart = styled.section`
 			height: 100%;
 		}
 		.item {
-			max-height: 18vh;
+			max-height: 50vh;
 			min-width: 14vw;
-			width: 10vw;
+			max-width: 20vw;
 			padding: 5px;
 			display: flex;
 			flex-direction: column;
@@ -231,7 +197,7 @@ const FirstPart = styled.section`
 
 	/* Media */
 
-	@media screen and (max-width: 768px) {
+	@media (max-width: 768px) {
 		flex-direction: column;
 		padding-bottom: 23rem;
 		.RightSide {
@@ -293,6 +259,7 @@ const SecondPart = styled.div`
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		padding: 0 2rem;
 	}
 
 	.RightSide {
@@ -302,7 +269,7 @@ const SecondPart = styled.div`
 		.secondBackground {
 			position: absolute;
 			background-color: #e8f6f7;
-			height: 22vh;
+			height: 30vh;
 			width: 70vw;
 			top: 70px; // To control the Y position of the background shape (Move UP or Down)
 			right: 0; // To control the X position of the background shape (Left or Right)
@@ -313,40 +280,11 @@ const SecondPart = styled.div`
 			position: absolute;
 			z-index: 2;
 			right: 0;
-			top: 90px;
+			top: 100px;
 			max-width: 60vw;
 			max-height: 75vh;
 			cursor: grab;
 			overflow: hidden;
-			.second-inner-carousel {
-				display: flex;
-				height: 100%;
-			}
-			.item {
-				min-height: 18vh;
-				min-width: 30vw;
-				width: 10vw;
-				padding: 5px;
-				display: flex;
-				flex-direction: column;
-				img {
-					width: 100%;
-					height: 100%;
-					border-radius: 10px 10px 0 0;
-					object-fit: cover;
-					pointer-events: none;
-				}
-				p {
-					padding: 0;
-					margin: 0;
-					width: 100%;
-					font-size: 1rem;
-					font-weight: 400;
-					text-align: center;
-					background-color: #fff;
-					border-radius: 0 0 10px 10px;
-				}
-			}
 		}
 	}
 
@@ -358,6 +296,7 @@ const SecondPart = styled.div`
 		.LeftSide {
 			flex-direction: column;
 			width: 100%;
+			box-sizing: border-box;
 			p,
 			h1 {
 				box-sizing: border-box;
@@ -372,24 +311,27 @@ const SecondPart = styled.div`
 
 		.RightSide {
 			.secondBackground {
-				top: 250px;
+				top: 280px;
 				width: 100%;
 				min-width: 110vw;
 				height: 37vh;
 				clip-path: polygon(0 0, 100% 0, 100% 100%, 23% 100%);
 			}
 			.secondCarousel {
-				top: 270px;
+				top: 290px;
 				left: 60px;
-				max-width: 70vw;
+				min-width: 70vw;
 				max-height: 70vh;
 			}
 			.second-inner-carousel {
-				height: 30vh;
+				min-width: 60vw;
+				width: 70vw;
 			}
 			.item {
-				min-width: 40vw;
-				width: 55vw;
+				max-width: 80vw;
+				min-width: 60vw;
+				width: 80vw;
+				/* width: 55vw; */
 				height: 32vh;
 			}
 		}
