@@ -69,7 +69,6 @@ const Section = styled.section`
 	padding: 1rem;
 	border-radius: 40px 40px 0 0;
 	color: white;
-	/* display: flex; */
 	line-height: 2rem;
 	box-sizing: border-box;
 	cursor: pointer;

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BsSearch, BsFillPersonPlusFill } from 'react-icons/bs';
+import DropDown from './DropDown';
+import { data } from './data';
 
 import styled from 'styled-components';
 
@@ -7,7 +9,7 @@ const Navbar = () => {
 	const [changeLanguage, setChangeLanguage] = useState(false);
 
 	return (
-		<Nav>
+		<Nav className='nav-area'>
 			<div className='container'>
 				<Logo>
 					<img src='../../Assets/logo.png' alt='Weds360_Logo' />
@@ -15,20 +17,15 @@ const Navbar = () => {
 					<FaBars />
 				</button> */}
 				</Logo>
+
 				<NavItems>
 					<div className='nav-container'>
-						<ul>
-							<li>360 Planner</li>
-							<li>Her</li>
-							<li>Him</li>
-							<li>The Wedding</li>
-							<li>Vendors</li>
-							<li>Gallery</li>
-							<li>Ideas More</li>
-							<li>Take a Tour</li>
-						</ul>
+						{data.map((item, index) => {
+							return <DropDown {...item} key={index} />;
+						})}
 					</div>
 				</NavItems>
+
 				<Search>
 					<div className='search-icon'>
 						<button>
@@ -55,20 +52,23 @@ const Navbar = () => {
 const Nav = styled.nav`
 	overflow: hidden;
 	display: flex;
-	padding: 1.5rem 0.5rem;
+	padding: 1.5rem 0.1rem;
 	position: fixed;
+	top: 0;
 	width: 100%;
 	background-color: #fff;
 	z-index: 99999999999999999;
+	box-sizing: border-box;
 
 	.container {
 		display: flex;
 		width: 100%;
-		justify-content: space-between;
-		padding: 0 6rem;
+		justify-content: space-evenly;
+		padding: 0 2rem;
+		box-sizing: border-box;
 	}
 
-	@media screen and (max-width: 768px){
+	@media screen and (max-width: 768px) {
 		display: none;
 	}
 `;
@@ -80,26 +80,15 @@ const Logo = styled.div`
 const NavItems = styled.div`
 	.nav-container {
 		display: flex;
-		height: 5rem;
+		justify-content: space-evenly;
+		width: 100%;
 		align-content: center;
-
-		ul {
-			display: flex;
-			list-style: none;
-			gap: 3rem;
-			align-content: center;
-			align-items: center;
-		}
-
-		li {
-			font-size: 1rem;
-			cursor: pointer;
-			&:hover {
-				font-weight: 600;
-			}
-		}
+		align-items: center;
+		padding: 1rem;
+		box-sizing: border-box;
 	}
 `;
+
 const Search = styled.div`
 	display: flex;
 	align-items: center;

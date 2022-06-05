@@ -92,7 +92,7 @@ const Main = styled.div`
 		color: white;
 		background-color: #de8a42;
 		border: none;
-		font-size: 2rem;
+		font-size: 1rem;
 		border-radius: 50%;
 		display: flex;
 		padding: 0.8rem;
@@ -108,7 +108,7 @@ const Main = styled.div`
 		color: white;
 		background-color: #de8a42;
 		border: none;
-		font-size: 2rem;
+		font-size: 1rem;
 		border-radius: 50%;
 		display: flex;
 		padding: 0.8rem;

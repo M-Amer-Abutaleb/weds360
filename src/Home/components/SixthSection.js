@@ -221,7 +221,7 @@ const FirstPart = styled.section`
 			.background {
 				top: 420px;
 				width: 100%;
-				min-width: 113vw;
+				min-width: 110vw;
 				clip-path: polygon(0 1%, 100% 0, 94% 100%, 0% 100%);
 			}
 			.Carousel {
