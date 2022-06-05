@@ -56,14 +56,20 @@ const SecondSection = () => {
 	);
 };
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////				 Styling 				///////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 	width: 100%;
+	height: 100%;
+	max-width: 100%;
   background-color: #f8f8f8f8;
-  padding: 3rem  0 ;
+  padding:  1.5rem 0 ;
 `;
 
 const Header = styled.div`
@@ -100,7 +106,7 @@ const Card = styled.div`
   align-items: center;
   justify-content: center;
   height: 100px;
-	width: 200px;
+	width: 183px;
   border-radius: 10px;
   padding:0.5rem;
 	margin: 0.5rem;
