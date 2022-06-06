@@ -31,17 +31,20 @@ const DropDown = ({ title, content, id }) => {
 const Main = styled.div`
 	padding-top: auto;
 	display: flex;
+	width: 100%;
 	.titles {
 		padding: 5px 4px;
-    text-align: center;
-    &:hover{
-      font-weight: 550;
-    }
+		text-align: center;
+		width: 100%;
+		&:hover {
+			font-weight: 550;
+		}
 	}
 	a {
 		text-decoration: none;
 		color: black;
 		padding: 0 0.5rem;
+		width: 100%;
 	}
 	.items {
 		border-radius: 10px;
@@ -55,9 +58,9 @@ const Main = styled.div`
 		box-sizing: border-box;
 		box-shadow: 0px 5px 22px 0px rgba(0, 0, 0, 0.75);
 		background-color: #fff;
-    @media screen and (max-width: 1137px){
-      top: 9.5%;
-    }
+		@media screen and (max-width: 1137px) {
+			top: 9.5%;
+		}
 	}
 `;
 

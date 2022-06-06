@@ -10,10 +10,6 @@ const FirstSection = () => {
 		return setInputValue(word);
 	};
 
-	useEffect(() => {
-		
-	})
-
 	return (
 		<Main>
 			<LeftSide>
@@ -51,9 +47,10 @@ const FirstSection = () => {
 								value={inputValue}
 								onChange={() => value}
 							/>
-							<select onClick={value}>
-								<option>Giza</option>
-								<option>Alex</option>
+
+							<select onClick={value} id='select'>
+								<option>Cairo - Giza</option>
+								<option>Alexandria</option>
 							</select>
 						</div>
 						<button>Search</button>
@@ -73,9 +70,8 @@ const FirstSection = () => {
 	);
 };
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////				 Styling 				///////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Styling
+
 const Main = styled.div`
 	display: flex;
 	flex-direction: row;
@@ -102,6 +98,7 @@ const LeftSide = styled.div`
 	justify-content: center;
 	height: 100%;
 	width: 100%;
+	padding: 0 1rem;
 	.content {
 		display: flex;
 		flex-direction: row;
@@ -126,79 +123,74 @@ const LeftSide = styled.div`
 			display: none;
 		}
 	}
-	/* @media (min-width: 1000px) {
-		.content, .typewriter{
-			font-size: 20px;
-		}
-	} */
 `;
 
 const Inputs = styled.div`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
 	width: 100%;
-
-	.first-input {
-		width: 50%;
-		height: 30px;
-		border: 1px solid #ccc;
-		padding: 5px;
-	}
 	form {
-		width: 100%;
 		display: flex;
-		.area-input {
+		width: 100%;
+		.first-input {
 			width: 100%;
-			background-color: #fff;
-			border: none;
-		}
-		select {
-			border: none;
-			width: 20px;
-		}
-		option {
+			border: 1px solid #ccc;
+			box-sizing: border-box;
 			font-size: 20px;
 		}
-	}
-	.second-input {
-		display: flex;
-		width: 50%;
-		height: 30px;
-		border: 1px solid #ccc;
-		border-radius: 5px;
-		padding: 5px;
-	}
-	button {
-		font-size: 1em;
-		width: 50%;
-		height: 42px;
-		border: 1px solid #ccc;
-		box-shadow: 0.5px 0.5px 0.2px #00000057;
-		border-radius: 0 5px 5px 0px;
-		background-color: #046a6e;
-		color: #ffffff;
-		cursor: pointer;
-		&:hover {
-			font-weight: 800;
+		.second-input {
+			width: 100%;
+			display: flex;
+			outline: none;
+			border: 1px solid #e6e6e6;
+			box-sizing: border-box;
+			cursor: pointer;
+			input {
+				width: 100%;
+				border: none;
+				outline: none;
+				background-color: #fff;
+				box-sizing: border-box;
+				font-size: 1.2rem;
+				font-family: 'Roboto', sans-serif;
+				color: #000;
+				cursor: pointer;
+			}
+			select {
+				width: 22px;
+				cursor: pointer;
+			}
+			option {
+				font-size: 20px;
+			}
+		}
+
+		button {
+			font-size: 1em;
+			width: 100%;
+			height: 42px;
+			border: 1px solid #ccc;
+			box-shadow: 0.5px 0.5px 0.2px #00000057;
+			border-radius: 0 5px 5px 0px;
+			background-color: #046a6e;
+			color: #ffffff;
+			cursor: pointer;
+			&:hover {
+				font-weight: 800;
+			}
 		}
 	}
 	@media (max-width: 768px) {
-		.second-input,
-		.first-input,
-		button {
-			margin: 1px 0;
-			margin: 0;
-			width: 100%;
-			box-sizing: border-box;
-		}
+		width: 100%;
+		justify-content: space-evenly;
+		box-sizing: border-box;
 		form {
+			width: 100%;
 			display: flex;
 			flex-direction: column;
+			justify-content: center;
+			gap: 0.5rem 0;
+			box-sizing: border-box;
 		}
 	}
-	
 `;
 
 const RightSide = styled.div`

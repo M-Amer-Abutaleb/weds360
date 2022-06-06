@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { BsSearch, BsFillPersonPlusFill } from 'react-icons/bs';
 import DropDown from './DropDown';
 import { data } from './data';
+import Search from '../components/Search';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -12,7 +14,10 @@ const Navbar = () => {
 		<Nav className='nav-area'>
 			<div className='container'>
 				<Logo>
-					<img src='../../Assets/logo.png' alt='Weds360_Logo' />
+					<Link to='/'>
+						<img src='../../Assets/logo.png' alt='Weds360_Logo' />
+					</Link>
+
 					{/* <button className='Toggler'>
 					<FaBars />
 				</button> */}
@@ -26,14 +31,15 @@ const Navbar = () => {
 					</div>
 				</NavItems>
 
-				<Search>
-					<div className='search-icon'>
+				<SearchBar>
+					<Search />
+					{/* <div className='search-icon'>
 						<button>
 							<BsSearch />
 						</button>
 						<input type='text' placeholder='Search' />
-					</div>
-				</Search>
+					</div> */}
+				</SearchBar>
 				<Icons>
 					<div className='icons-container'>
 						<BsFillPersonPlusFill />
@@ -52,7 +58,7 @@ const Navbar = () => {
 const Nav = styled.nav`
 	overflow: hidden;
 	display: flex;
-	padding: 1.5rem 0.1rem;
+	padding: 1.2rem 0.1rem;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -68,9 +74,9 @@ const Nav = styled.nav`
 		box-sizing: border-box;
 	}
 
-	@media screen and (max-width: 768px) {
+	/* @media screen and (max-width: 768px) {
 		display: none;
-	}
+	} */
 `;
 const Logo = styled.div`
 	img {
@@ -89,34 +95,10 @@ const NavItems = styled.div`
 	}
 `;
 
-const Search = styled.div`
+const SearchBar = styled.div`
 	display: flex;
 	align-items: center;
-
-	.search-icon {
-		width: 100%;
-		display: flex;
-		background-color: #f5f5f5;
-		border-radius: 0.5rem;
-		input {
-			width: 100%;
-			border: none;
-			border-radius: 0.5rem;
-			padding-left: 1rem;
-			font-size: 1rem;
-			background-color: #f5f5f5;
-			&.active {
-				background-color: red;
-			}
-		}
-		button {
-			border: none;
-			border-radius: 0.5rem;
-			padding: 0.5rem;
-			font-size: 1rem;
-			cursor: pointer;
-		}
-	}
+	justify-content: center;
 `;
 
 const Icons = styled.div`

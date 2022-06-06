@@ -15,6 +15,7 @@ const Main = styled.section`
 	a {
 		&:hover {
 			color: #15533a;
+			width: 100%;
 		}
 	}
 `;
