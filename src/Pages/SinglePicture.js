@@ -1,5 +1,4 @@
 import React from 'react';
-import { useGlobalContext } from '../contextAPI';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 const SinglePicture = ({

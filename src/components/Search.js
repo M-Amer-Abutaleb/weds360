@@ -11,7 +11,7 @@ const Search = () => {
     e.preventDefault();
     if (userInput.length > 2) {
       setUserInput(userInput);
-      navigate(`/photos/`);
+      navigate(`/search/${userInput}`);
     }
 	};
 

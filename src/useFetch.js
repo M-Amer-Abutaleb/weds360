@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const mainURL = 'https://api.unsplash.com/photos/';
 const searchURL = 'https://api.unsplash.com/search/photos/';
@@ -8,6 +9,7 @@ const useFetch = (userInput, page) => {
 	const [data, setData] = useState([]);
 	let urlPage = `&page=${page}`;
 	let urlQuery = `&query=${userInput}`;
+	const navigate = useNavigate();
 
 	const getPhotos = useCallback(
 		async (...Arguments) => {
@@ -36,6 +38,7 @@ const useFetch = (userInput, page) => {
 		if (!isLoading) {
 			if (userInput.length > 2) {
 				getPhotos(userInput);
+				navigate('/search/' + userInput);	
 			} else {
 				getPhotos();
 			}

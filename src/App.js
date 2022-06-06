@@ -6,13 +6,13 @@ import Photos from './Pages/Photos';
 import styled, { GlobalStyleComponent } from 'styled-components';
 import ChatModal from './Home/components/ChatModal';
 import PhotoInfo from './Pages/PhotoInfo';
+import SearchPhoto from './Pages/SearchPhoto';
 import ErrorPage from './Pages/ErrorPage';
 import SeventhSection from './Home/components/SeventhSection';
 import EighthSection from './Home/components/EighthSection';
 import Footer from './Home/components/Footer';
 import { BsArrowUp, BsChatLeftFill, BsXLg } from 'react-icons/bs';
 import './index.css';
-
 
 function App() {
 	const [showButton, setShowButton] = useState(false);
@@ -39,10 +39,11 @@ function App() {
 		<Main>
 			<Navbar />
 			<Routes>
-				<Route path='/' element={<Home />}></Route>
-				<Route path='/photos' element={<Photos />}></Route>
-				<Route path='/photo/:id' element={<PhotoInfo />}></Route>
-				<Route path='/*' element={<ErrorPage />}></Route>
+				<Route path='/' element={<Home />} />
+				<Route path='/photos' element={<Photos />} />
+				<Route path='/photo/:id' element={<PhotoInfo />} />
+				<Route path='/search/:query' element={<SearchPhoto />} />
+				<Route path='/*' element={<ErrorPage />} />
 			</Routes>
 
 			{/* Chat + Nav Icon */}
