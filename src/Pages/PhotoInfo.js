@@ -1,15 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import SeventhSection from '../Home/components/SeventhSection';
-import EighthSection from '../Home/components/EighthSection';
-import Footer from '../Home/components/Footer';
 import {
 	BsFacebook,
 	BsTwitter,
 	BsInstagram,
 	BsHeartFill,
 } from 'react-icons/bs';
+
 const PhotoInfo = () => {
 	const { id } = useParams();
 	const [photo, setPhoto] = useState([]);
@@ -79,9 +77,7 @@ const PhotoInfo = () => {
 					</div>
 				</div>
       </Main>
-      <SeventhSection />
-      <EighthSection />
-      <Footer />
+
 		</>
 	);
 };

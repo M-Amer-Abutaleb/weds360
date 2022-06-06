@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
-import Home from './Home/Home';
+import Home from './Pages/Home';
 import Photos from './Pages/Photos';
 import styled, { GlobalStyleComponent } from 'styled-components';
 import ChatModal from './Home/components/ChatModal';
 import PhotoInfo from './Pages/PhotoInfo';
+import ErrorPage from './Pages/ErrorPage';
+import SeventhSection from './Home/components/SeventhSection';
+import EighthSection from './Home/components/EighthSection';
+import Footer from './Home/components/Footer';
 import { BsArrowUp, BsChatLeftFill, BsXLg } from 'react-icons/bs';
 import './index.css';
 
@@ -38,10 +42,10 @@ function App() {
 				<Route path='/' element={<Home />}></Route>
 				<Route path='/photos' element={<Photos />}></Route>
 				<Route path='/photo/:id' element={<PhotoInfo />}></Route>
+				<Route path='/*' element={<ErrorPage />}></Route>
 			</Routes>
 
 			{/* Chat + Nav Icon */}
-
 			<div className='navButton'>
 				{showButton && (
 					<button className='scrollButton' onClick={() => scrollUp()}>
@@ -59,6 +63,9 @@ function App() {
 					{!showModal ? <BsChatLeftFill /> : <BsXLg />}
 				</button>
 			</div>
+			<SeventhSection />
+			<EighthSection />
+			<Footer />
 		</Main>
 	);
 }

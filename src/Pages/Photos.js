@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import SeventhSection from '../Home/components/SeventhSection';
-import EighthSection from '../Home/components/EighthSection';
-import Footer from '../Home/components/Footer';
 import { useGlobalContext } from '../contextAPI';
 import SinglePicture from './SinglePicture';
 import styled from 'styled-components';
@@ -61,9 +58,6 @@ const Photos = () => {
 					</div>
 				</div>
 			</Container>
-			<SeventhSection />
-			<EighthSection />
-			<Footer />
 		</Main>
 	);
 };
